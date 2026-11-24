@@ -1,0 +1,85 @@
+.input {
+  padding: 8px 16px;
+  border-radius: 32px;
+  align-items: center;
+  display: flex;
+  background-color: #30415d;
+  outline: 1px solid #00000027;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.26);
+  transition: box-shadow 0.3s ease;
+
+  &__wrapper {
+    display: grid;
+    align-items: center;
+    gap: 12px;
+    grid-template-columns: 1fr auto;
+
+    button {
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      background-color: #cf6766;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 5px 4px rgba(0, 0, 0, 0.26);
+      transition: box-shadow 0.3s ease;
+
+      &:hover:not([disabled]) {
+        box-shadow: 0 3px 14px rgba(223, 225, 230, 0.13);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &:focus-within {
+    box-shadow: 0 3px 14px rgba(223, 225, 230, 0.13);
+    &:hover {
+      box-shadow: 0 3px 14px 4px rgba(223, 225, 230, 0.13);
+    }
+  }
+
+  &:hover:not(&:focus-within) {
+    box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  &[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    & * {
+      cursor: not-allowed;
+    }
+  }
+
+  textarea {
+    font-size: 18px;
+    line-height: 24px;
+    resize: none;
+    padding: 4px;
+    word-break: break-all;
+    overflow-y: auto;
+    border: none;
+    color: #cbd8ee;
+    background-color: transparent;
+    width: 100%;
+    min-height: 32px;
+    max-height: 120px;
+    height: 32px;
+
+    &::placeholder {
+      color: #6a7891;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    height: 100%;
+  }
+}

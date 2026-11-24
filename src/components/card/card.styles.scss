@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: 12px;
+  min-height: 100px;
+  text-align: left;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px black;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  background-color: rgb(233, 163, 163);
+
+  &:nth-child(2n) {
+    background-color: rgb(210, 250, 230);
+  }
+
+  &:nth-child(3n) {
+    background-color: rgb(163, 199, 233);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__overline {
+      color: rgba(0, 0, 0, 0.527);
+      font-weight: 600;
+    }
+
+    &__actions {
+      display: flex;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

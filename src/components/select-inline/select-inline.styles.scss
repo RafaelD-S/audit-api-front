@@ -1,0 +1,30 @@
+.select-inline {
+  display: flex;
+
+  &__label {
+    color: #90adbb;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  select {
+    border: 1px solid #53657f;
+    border-radius: 6px;
+    padding: 4px 0 4px 8px;
+    color: #cbd8ee;
+    background-color: #30415d;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:focus-within {
+      outline: none;
+    }
+
+    option {
+      color: #cbd8ee;
+      background-color: #30415d;
+    }
+  }
+}
