@@ -28,6 +28,7 @@ const Input = ({ selectInline, disabled, ...rest }: IInput) => {
       <div className="input" aria-disabled={disabled}>
         <textarea
           {...rest}
+          name="AI-textarea"
           ref={textareaRef}
           rows={1}
           onChange={handleChange}

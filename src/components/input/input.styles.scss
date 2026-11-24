@@ -1,12 +1,13 @@
 .input {
   padding: 8px 16px;
-  border-radius: 32px;
+  border-radius: 24px;
   align-items: center;
   display: flex;
   background-color: #30415d;
   outline: 1px solid #00000027;
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.26);
   transition: box-shadow 0.3s ease;
+  gap: 12px;
 
   &__wrapper {
     display: grid;
