@@ -2,6 +2,11 @@
 
 A React and TypeScript frontend for the IFBA Internal Control Understanding project. It sends a natural-language request to the audit API, displays the generated response as Markdown, and keeps multiple results available in the current session.
 
+[API Repository](https://github.com/Vessierre/audit-api)
+
+<img width="1915" height="903" alt="image" src="https://github.com/user-attachments/assets/3e394cc9-5b08-4afd-a49a-0d5d69d58113" />
+
+
 ## Features
 
 - Submit natural-language audit requests.
