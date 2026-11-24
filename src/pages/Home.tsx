@@ -23,9 +23,9 @@ const modelOptions: ISelectOption[] = [
 ];
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>(localStorage.getItem("inputValue") || "");
   const [responseTextList, setResponseTextList] = useState<{ content: string; model: string }[]>(
-    [],
+    JSON.parse(localStorage.getItem("responses") ?? "[]"),
   );
   const [selectedModel, setSelectedModel] = useState<string>(modelOptions[0].value);
   const [loading, setLoading] = useState<boolean>(false);
@@ -54,9 +54,11 @@ const Home = () => {
       }
 
       const data = await response.text();
-      setResponseTextList((itens) => {
-        return [...itens, { content: data, model: selectedModel }];
-      });
+      const newItens = [...responseTextList, { content: data, model: selectedModel }];
+
+      setResponseTextList(newItens);
+
+      localStorage.setItem("responses", JSON.stringify(newItens));
     } catch (error) {
       setErrorMessage(String(error));
       console.error(error);
@@ -84,7 +86,10 @@ const Home = () => {
                 onChange={(e) => setSelectedModel(e.target.value)}
               />
             }
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              localStorage.setItem("inputValue", e.target.value);
+              setInputValue(e.target.value);
+            }}
             disabled={loading}
           />
         </form>
@@ -94,10 +99,10 @@ const Home = () => {
         {responseTextList.length > 0 && (
           <div className="home__card-list__container">
             <div className="home__card-list">
-              {responseTextList.map((item, index) => (
+              {responseTextList.map((item) => (
                 <Card
                   overline={item.model}
-                  key={`${index}-${item.model}-${item.content}`}
+                  key={`${item.model}-${item.content}`}
                   content={item.content}
                   onClose={() => {
                     setResponseTextList((response) =>
