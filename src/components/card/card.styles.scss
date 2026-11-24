@@ -11,13 +11,16 @@
   box-shadow: 0 5px 10px black;
   margin-bottom: 16px;
   break-inside: avoid;
-  background-color: rgb(233, 163, 163);
 
-  &:nth-child(2n) {
+  &--hydrogen {
+    background-color: rgb(233, 163, 163);
+  }
+
+  &--flash-lite {
     background-color: rgb(210, 250, 230);
   }
 
-  &:nth-child(3n) {
+  &--flash {
     background-color: rgb(163, 199, 233);
   }
 
@@ -46,5 +49,15 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    p {
+      font-weight: 500;
+      color: rgba(29, 29, 29, 0.822);
+    }
+
+    strong {
+      font-weight: 700;
+      color: rgba(12, 12, 12, 0.945);
+    }
   }
 }

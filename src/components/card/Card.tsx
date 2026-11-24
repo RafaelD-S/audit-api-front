@@ -26,7 +26,7 @@ const Card = ({
   const animatedText = useTypewriter(content);
 
   return (
-    <div className="card">
+    <div className={`card card--${overline}`}>
       <div className="card__header">
         <p className="card__header__overline">{overline}</p>
         <div className="card__header__actions">
