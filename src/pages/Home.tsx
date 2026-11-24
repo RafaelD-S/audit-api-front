@@ -33,7 +33,6 @@ const Home = () => {
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(selectedModel);
 
     try {
       setLoading(true);
@@ -105,9 +104,12 @@ const Home = () => {
                   key={`${item.model}-${item.content}`}
                   content={item.content}
                   onClose={() => {
-                    setResponseTextList((response) =>
-                      response.filter((f) => f.content !== item.content),
-                    );
+                    setResponseTextList((response) => {
+                      const newItens = response.filter((f) => f.content !== item.content);
+                      localStorage.setItem("responses", JSON.stringify(newItens));
+
+                      return newItens;
+                    });
                   }}
                 />
               ))}
